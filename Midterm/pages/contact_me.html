@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/main.css">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <header>
+        <div id="header_wrapper">
+          <a class="header_button" href="../index.html">Home</a>
+          <a class="header_button" href="./about.html">About</a>
+          <a class="header_button" href="./coursework.html">Coursework</a>
+          <a class="header_button" href="./artifacts.html">Artifacts</a>
+          <a class="header_button" href="./module_assignments.html">Module Assignments</a>
+          <a class="header_button" id="selectedPage" href="./contact_me.html">Contact me</a>
+          <a class="header_button" href="./creative.html">Creative</a>
+        </div>
+      </header>
+      <div id="content">
+        <div id="form_cover">
+          Thank You for your message!
+        </div>
+        <form id="contact_form">
+          <div>
+            <input type="text" placeholder="Name" oninput="toggleInputFilled(this)" required>
+            <p>Name</p>
+          </div>
+          <div>
+            <input type="email" placeholder="Email" oninput="toggleInputFilled(this)" required>
+            <p>Email</p>
+          </div>
+          <div>
+            <textarea name="comment" id="comment" oninput="toggleInputFilled(this)" placeholder="Comment" rows="10"
+              required></textarea>
+            <p>Comment</p>
+          </div>
+          <div>
+            <input id="submit" type="submit" value="Submit">
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="../js/main.js"></script>
+    <script>
+      let form = document.getElementById("contact_form");
+      let formCover = document.getElementById("form_cover");
+
+      // Form submit animation handler
+      form.onsubmit = (e) => {
+        e.preventDefault();
+        let formElements = form.children;
+
+        new Array(formElements.length).fill("").forEach((element, i) => {
+          formElements[i].style.opacity = "0%";
+        });
+
+        formCover.style.opacity = "100%";
+
+        setTimeout(() => {
+          formCover.style.opacity = "0%";
+          new Array(formElements.length).fill("").forEach((element, i) => {
+            let inputChildren = formElements[i].children;
+
+            formElements[i].style.opacity = "100%";
+
+            if (inputChildren[0].id != "submit") {
+              inputChildren[0].value = "";
+              toggleInputFilled(inputChildren[0])
+            }
+          });
+        }, 3000);
+      }
+    </script>
+  </body>
+
+</html>
