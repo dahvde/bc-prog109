@@ -85,10 +85,12 @@ function toggleColorMode() {
     localStorage.setItem("colorMode", "dark");
     document.body.classList = "dark-mode";
     colorToggle.setAttribute("src", "./images/sun.svg");
+    colorToggle.setAttribute("alt", "sun");
   } else {
     localStorage.setItem("colorMode", "light");
     document.body.classList = "light-mode";
     colorToggle.setAttribute("src", "./images/moon.svg");
+    colorToggle.setAttribute("alt", "moon");
   }
 }
 

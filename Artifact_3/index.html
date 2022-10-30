@@ -35,21 +35,21 @@
               <label for="show-odd">Odd:</label>
               <input id="show-odd" type="checkbox" data="hideOdd" onclick="handleCheckBox()" checked>
               <span class="checkmark">
-                <img src="./images/check.svg">
+                <img src="./images/check.svg" alt="checkmark">
               </span>
             </div>
             <div>
               <label for="show-even">Even:</label>
               <input id="show-even" type="checkbox" data="hideEven" onclick="handleCheckBox()" checked>
               <span class="checkmark">
-                <img src="./images/check.svg">
+                <img src="./images/check.svg" alt="checkmark">
               </span>
             </div>
             <div>
               <label for="show-hidden">Fillers:</label>
               <input id="show-hidden" type="checkbox" data="hideWhitespace" onclick="handleCheckBox()">
               <span class="checkmark">
-                <img src="./images/check.svg" class="hidden">
+                <img src="./images/check.svg" alt="checkmark" class="hidden">
               </span>
             </div>
           </div>
@@ -57,7 +57,9 @@
         <!-- <button onclick="createRhombus();">Display Rhombus</button> -->
 
       </div>
-      <button id="colorToggle" onclick="toggleColorMode()"><img src="./images/sun.svg"></button>
+      <button id="colorToggle" onclick="toggleColorMode()">
+        <img src="./images/sun.svg" alt="sun">
+      </button>
 
       <div id="rhombus" class="hideWhitespace"></div>
     </div>
