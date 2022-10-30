@@ -18,6 +18,11 @@ body {
   color: rgb(255, 255, 255);
   --text-color: rgb(255, 255, 255);
   --light-color: #121414;
+  --border-color: rgba(255, 255, 255, 0.119);
+}
+
+#rhombus {
+  margin: 70px 0;
 }
 
 .light-mode {
@@ -25,7 +30,12 @@ body {
   color: rgb(0, 0, 0);
   --text-color: rgb(0, 0, 0);
   /* --light-color: rgb(106, 106, 106); */
-  --light-color: rgb(189, 72, 72);
+  --light-color: #eee;
+  --border-color: rgba(0, 0, 0, 0.37);
+}
+
+.transition {
+  transition: color 0.2s, background-color 0.2s;
 }
 
 #colorToggle {
@@ -37,27 +47,32 @@ body {
   border-radius: 5px;
   font-size: 20px;
   right: 20px;
+  border: 1px solid var(--border-color);
+}
+
+#colorToggle img {
+  color: var(--text-color);
 }
 
 #input-wrapper {
   display: flex;
   flex-direction: column;
-  background-color: #121414;
-  color: white;
+  background-color: var(--light-color);
+  color: var(--text-color);
   padding: 20px;
   border-radius: 5px;
   gap: 10px;
   position: fixed;
   right: 20px;
   top: 20px;
-
+  border: 1px solid var(--border-color);
   width: clamp(100px, 20vw, 240px);
 }
 
 #input-wrapper input {
-  background-color: #121414;
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.37);
+  background-color: var(--light-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
   border-radius: 5px;
   font-size: 20px;
   padding: 5px;
@@ -67,7 +82,6 @@ body {
 }
 
 input[type="color"] {
-  -webkit-appearance: none;
   border: none;
 }
 input[type="color"]::-webkit-color-swatch-wrapper {
@@ -85,32 +99,13 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 #input-wrapper select {
-  background-color: #121414;
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.37);
+  background-color: var(--light-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
   border-radius: 5px;
   padding: 5px;
   margin: 5px;
   font-size: clamp(10px, 1.5vw, 17px);
-}
-
-#input-wrapper button:hover {
-  background-color: #1f1f1f;
-  cursor: pointer;
-}
-
-#input-wrapper button {
-  background-color: #121414;
-  color: white;
-  border: 1px solid white;
-  border-radius: 5px;
-  padding: 5px;
-  margin: 5px;
-}
-
-/* Select direct child to make filler value disappear */
-.rhombusRow > p {
-  opacity: 0;
 }
 
 .rhombusRow div {
@@ -118,11 +113,11 @@ input[type="color"]::-webkit-color-swatch {
   margin: 0;
 }
 
-.rhombusContent p:nth-child(2n) {
+.rhombusContent p:nth-child(even) {
   color: var(--color-even);
 }
 
-.rhombusContent p:nth-child(2n + 1) {
+.rhombusContent p:nth-child(odd) {
   color: var(--color-odd);
 }
 
@@ -131,4 +126,53 @@ input[type="color"]::-webkit-color-swatch {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#checkbox-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#checkbox-container div {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 5px;
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+input[type="checkbox"]:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+.hideEven .rhombusContent p:nth-child(even) {
+  opacity: 0%;
+}
+
+.hideOdd .rhombusContent p:nth-child(odd) {
+  opacity: 0%;
+}
+
+.hideWhitespace .rhombusRow > p {
+  opacity: 0%;
+}
+
+.checkmark {
+  height: 25px;
+  width: 25px;
+  border-radius: 5px;
+  /* background-color: orange; */
+  border: 1px solid var(--border-color);
+}
+
+.hidden {
+  opacity: 0%;
 }
