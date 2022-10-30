@@ -30,11 +30,11 @@ function createRhombus() {
     if (i > 0) {
       row =
         "<div class='rhombusRow' >" +
-        `<p>${fillerSymbol.repeat(i)}</p>` +
+        `<p class='transition'>${fillerSymbol.repeat(i)}</p>` +
         "<div class='rhombusContent' color-value='red'>" +
         row +
         "</div>" +
-        `<p>${fillerSymbol.repeat(i)}</p>` +
+        `<p class='transition'>${fillerSymbol.repeat(i)}</p>` +
         "</div>";
     } else {
       row =
