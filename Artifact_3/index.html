@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta name="description" content="Artifact 3 - Rhombus Example">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./main.css">
+    <title>Artifact 3 - Rhombus</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="input-wrapper">
+        <div>
+          <label>What is the size of Rhombus?</label>
+          <input type="number" id="rHeight" value="5">
+        </div>
+        <div>
+          <label>Choose color for Even position</label>
+          <input type="color" id="colorEven" value="#000000" onchange="setColor()">
+        </div>
+        <div>
+          <label>Choose color for Odd position</label>
+          <input type="color" id="colorOdd" value="#FF0099" onchange="setColor()">
+        </div>
+        <div>
+          <label>Choose symbol for Rhombus</label>
+          <select id="symbol" onchange="createRhombus()">
+            <option value="*" selected>*</option>
+            <option value="$">$</option>
+            <option value="#">#</option>
+          </select>
+        </div>
+        <!-- <button onclick="createRhombus();">Display Rhombus</button> -->
+
+      </div>
+      <button id="colorToggle" onclick="toggleColorMode()">Toggle color Mode</button>
+
+      <div id="rhombus"></div>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+
+</html>
