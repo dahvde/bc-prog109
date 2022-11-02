@@ -1,70 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta name="description" content="Artifact 3 - Rhombus Example">
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="./main.css">
-  <title>Artifact 3 - Rhombus</title>
-</head>
+  <head>
+    <meta name="description" content="Artifact 3 - Rhombus Example">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./main.css">
+    <title>Artifact 3 - Rhombus</title>
+  </head>
 
-<body>
-  <div id="container">
-    <div id="input-wrapper">
-      <div>
-        <label>What is the size of Rhombus?</label>
-        <input type="number" id="rHeight" value="5">
-      </div>
-      <div>
-        <label>Choose color for Even position</label>
-        <input type="color" id="colorEven" value="#F77E7E" onchange="setColor()">
-      </div>
-      <div>
-        <label>Choose color for Odd position</label>
-        <input type="color" id="colorOdd" value="#45E3D9" onchange="setColor()">
-      </div>
-      <div>
-        <label>Choose symbol for Rhombus</label>
-        <select id="symbol" onchange="createRhombus()">
-          <option value="*" selected>*</option>
-          <option value="$">$</option>
-          <option value="#">#</option>
-        </select>
-        <div id="checkbox-container">
-          <div>
-            <label for="show-odd">Odd:</label>
-            <input id="show-odd" type="checkbox" data="hideOdd" onclick="handleCheckBox()" checked>
-            <span class="checkmark">
-              <img src="./images/check.svg" alt="checkmark">
-            </span>
-          </div>
-          <div>
-            <label for="show-even">Even:</label>
-            <input id="show-even" type="checkbox" data="hideEven" onclick="handleCheckBox()" checked>
-            <span class="checkmark">
-              <img src="./images/check.svg" alt="checkmark">
-            </span>
-          </div>
-          <div>
-            <label for="show-hidden">Fillers:</label>
-            <input id="show-hidden" type="checkbox" data="hideWhitespace" onclick="handleCheckBox()">
-            <span class="checkmark">
-              <img src="./images/check.svg" alt="checkmark" class="hidden">
-            </span>
+  <body>
+    <div id="container">
+      <div id="input-wrapper">
+        <div>
+          <label>What is the size of Rhombus?</label>
+          <input type="number" id="rHeight" value="5">
+        </div>
+        <div>
+          <label>Choose color for Even position</label>
+          <input type="color" id="colorEven" value="#F77E7E" oninput="setColor()">
+        </div>
+        <div>
+          <label>Choose color for Odd position</label>
+          <input type="color" id="colorOdd" value="#45E3D9" oninput="setColor()">
+        </div>
+        <div>
+          <label>Choose symbol for Rhombus</label>
+          <select id="symbol" onchange="createRhombus()">
+            <option value="*" selected>*</option>
+            <option value="$">$</option>
+            <option value="#">#</option>
+          </select>
+          <div id="checkbox-container">
+            <div>
+              <label for="show-odd">Odd:</label>
+              <input id="show-odd" type="checkbox" data="hideOdd" onclick="handleCheckBox()" checked>
+              <span class="checkmark">
+                <img src="./images/check.svg" alt="checkmark">
+              </span>
+            </div>
+            <div>
+              <label for="show-even">Even:</label>
+              <input id="show-even" type="checkbox" data="hideEven" onclick="handleCheckBox()" checked>
+              <span class="checkmark">
+                <img src="./images/check.svg" alt="checkmark">
+              </span>
+            </div>
+            <div>
+              <label for="show-hidden">Fillers:</label>
+              <input id="show-hidden" type="checkbox" data="hideWhitespace" onclick="handleCheckBox()">
+              <span class="checkmark">
+                <img src="./images/check.svg" alt="checkmark" class="hidden">
+              </span>
+            </div>
           </div>
         </div>
+        <!-- <button onclick="createRhombus();">Display Rhombus</button> -->
+
       </div>
-      <!-- <button onclick="createRhombus();">Display Rhombus</button> -->
+      <button id="colorToggle" onclick="toggleColorMode()">
+        <img src="./images/sun.svg" alt="sun">
+      </button>
 
+      <div id="rhombus" class="hideWhitespace"></div>
     </div>
-    <button id="colorToggle" onclick="toggleColorMode()">
-      <img src="./images/sun.svg" alt="sun">
-    </button>
 
-    <div id="rhombus" class="hideWhitespace"></div>
-  </div>
-
-  <script src="./main.js"></script>
-</body>
+    <script src="./main.js"></script>
+  </body>
 
 </html>
