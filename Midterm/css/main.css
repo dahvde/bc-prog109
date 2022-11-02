@@ -11,6 +11,7 @@ body {
   background-size: cover;
   padding: 0;
   background-color: #043246;
+  --transition: 0s;
 }
 
 #container {
@@ -55,7 +56,7 @@ header {
   color: white;
   flex: 1;
   align-items: center;
-  transition: background-color 0.2s, transform 0.2s;
+  transition: background-color var(--transition), var(--transition);
 }
 
 #selectedPage {
@@ -83,6 +84,8 @@ header {
 
 #cards_wrapper {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   gap: 10px;
 }
 
@@ -91,14 +94,21 @@ header {
   width: 100%;
   border-radius: 5px;
   text-align: center;
-  transition: background-color 0.3s;
+  flex: 49%;
+  color: white;
+  text-decoration: none;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.card:hover {
+  color: rgb(190, 190, 190);
 }
 
 .card img {
   height: clamp(100px, 10vw, 200px);
   border-radius: 5px;
   opacity: 0.8;
-  transition: opacity 0.3s, transform 0.3s;
+  transition: opacity var(--transition), transform var(--transition);
 }
 
 .card:hover {
@@ -127,12 +137,12 @@ header {
   font-size: 16px;
   position: relative;
   font-family: "Varela Round", Arial, Helvetica, sans-serif;
-  transition: background-color 0.3s, opacity 0.3s;
+  transition: background-color var(--transition), opacity var(--transition);
 }
 
 #contact_form div,
 #contact_form input[type="submit"] {
-  transition: opacity 0.3s;
+  transition: opacity var(--transition);
 }
 
 #contact_form input::placeholder #contact_form textarea::placeholder {
@@ -155,7 +165,7 @@ header {
   color: white;
   min-height: 100px;
   font-size: 16px;
-  transition: background-color 0.3s;
+  transition: background-color var(--transition);
 }
 
 #contact_form div p {
@@ -164,7 +174,8 @@ header {
   opacity: 0%;
   position: absolute;
   padding: 0;
-  transition: top 0.2s, margin 0.2s, opacity 0.3s;
+  transition: top var(--transition), margin var(--transition),
+    opacity var(--transition);
 }
 
 #contact_form div p::after {
@@ -189,7 +200,7 @@ header {
 #contact_form div input::placeholder,
 #contact_form div textarea::placeholder {
   opacity: 100%;
-  transition: opacity 0.2s;
+  transition: opacity var(--transition);
 }
 
 #contact_form div input:focus + p,
@@ -223,5 +234,5 @@ header {
   display: flex;
   justify-content: center;
   position: absolute;
-  transition: opacity 0.3s;
+  transition: opacity var(--transition);
 }
