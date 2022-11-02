@@ -2,9 +2,6 @@ var delay;
 var element = document.body;
 var checkBoxes = document.getElementsByClassName("checkmark");
 
-// default dark mode
-element.classList.toggle("dark-mode");
-
 // create rhombus to display in the dom
 function createRhombus() {
   // Set root properties
@@ -83,12 +80,12 @@ function toggleColorMode() {
   // init color mode
   if (localStorage.getItem("colorMode") === "light") {
     localStorage.setItem("colorMode", "dark");
-    document.body.classList = "dark-mode";
+    document.body.classList.toggle("dark-mode");
     colorToggle.setAttribute("src", "./images/sun.svg");
     colorToggle.setAttribute("alt", "sun");
   } else {
     localStorage.setItem("colorMode", "light");
-    document.body.classList = "light-mode";
+    document.body.classList.toggle("dark-mode");
     colorToggle.setAttribute("src", "./images/moon.svg");
     colorToggle.setAttribute("alt", "moon");
   }
@@ -101,12 +98,11 @@ function initLocalStorageItems() {
   const colorOddValue = localStorage.getItem("colorOdd");
 
   if (localStorage.getItem("colorMode") === "light") {
-    document.body.classList = "light-mode";
     document
       .querySelector("#colorToggle > img")
       .setAttribute("src", "./images/moon.svg");
   } else {
-    document.body.classList = "dark-mode";
+    document.body.classList.add("dark-mode");
     document
       .querySelector("#colorToggle > img")
       .setAttribute("src", "./images/sun.svg");
