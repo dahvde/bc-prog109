@@ -123,8 +123,6 @@ function saveColor() {
   const colorEven = document.getElementById("colorEven");
   const colorOdd = document.getElementById("colorOdd");
 
-  console.log(colorEven.value);
-
   localStorage.setItem("colorEven", colorEven.value);
 
   localStorage.setItem("colorOdd", colorOdd.value);
@@ -147,7 +145,11 @@ Array.from({ length: checkBoxes.length }).forEach((e, i) => {
     const inputBox = e.target.parentElement.parentElement.children[1];
     const checked = inputBox.getAttribute("checked");
     const rhombus = document.getElementById("rhombus");
-    const $Attr = inputBox.getAttribute("data");
+    let $Attr;
+
+    if (inputBox.id.length) {
+      $Attr = "hide" + firstLetterToUpperCase(inputBox.id.split("-")[1]);
+    }
 
     if (checked != null) {
       inputBox.removeAttribute("checked");
@@ -166,6 +168,10 @@ Array.from({ length: checkBoxes.length }).forEach((e, i) => {
     }
   });
 });
+
+function firstLetterToUpperCase(string) {
+  return string[0].toUpperCase() + string.slice(1);
+}
 
 initTranstion();
 initLocalStorageItems();
