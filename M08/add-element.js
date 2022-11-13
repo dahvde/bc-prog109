@@ -1,22 +1,11 @@
-// Create a new element and store it in a variable.
-var newEl = document.createElement("li");
-
-// Create a text node and store it in a variable.
-var newText = document.createTextNode("quinoa");
-
-// Attach the new text node to the new element.
-newEl.appendChild(newText);
-
-// Find the position where the new element should be added.
-var position = document.getElementsByTagName("ul")[0];
-
-// Insert the new element into its position.
-position.appendChild(newEl);
-
 class groceryItem {
+  static count = 0;
+
   constructor(name) {
+    this.id = groceryItem.count++;
     this.name = name;
     this.elem = document.createElement("li");
+    this.elem.id = this.id;
 
     this.setName(name);
     document.getElementsByTagName("ul")[0].appendChild(this.elem);
@@ -32,13 +21,26 @@ class groceryItem {
   }
 }
 
+let listItems = {
+  0: new groceryItem("<em>fresh</em> figs"),
+  1: new groceryItem("pine nuts"),
+  2: new groceryItem("honey"),
+  3: new groceryItem("balsalmic vinegar"),
+  4: new groceryItem("quinoa"),
+};
+
 document.getElementById("submit").addEventListener("click", () => {
   try {
     const name = document.getElementById("input-text");
     if (!name.value.length) throw "No input field";
-    console.log(name.value);
-    new groceryItem(name.value);
+    const newGroceryItem = new groceryItem(name.value);
+    listItems[newGroceryItem.id] = newGroceryItem;
   } catch (err) {
-    console.log(err);
+    const errElem = document.getElementById("error");
+    errElem.innerHTML = err;
+    errElem.style.opacity = "100%";
+    setTimeout(() => {
+      errElem.style.opacity = "0%";
+    }, 2000);
   }
 });

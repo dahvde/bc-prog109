@@ -10,6 +10,7 @@ body {
 #page {
   background-color: #403c3b;
   margin: 0 auto 0 auto;
+  position: relative;
 }
 /* Responsive page rules at bottom of style sheet */
 
@@ -95,6 +96,17 @@ li:nth-child(4n + 2) {
   border-top: 1px solid #7ee0c9;
   border-bottom: 1px solid #3b6a5e;
 } */
+
+#error {
+  color: red;
+  /* opacity: ; */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0%;
+  bottom: -80px;
+  transition: opacity 0.2s;
+}
 
 .complete {
   background-color: #999;
