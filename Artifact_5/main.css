@@ -10,7 +10,7 @@ body {
   /* overflow: scroll; */
   width: 100%;
   position: relative;
-  height: 450px;
+  /* height: 450px; */
   gap: 10px;
   flex-direction: row;
   justify-content: center;
@@ -50,7 +50,8 @@ footer {
 .slide {
   width: 700px;
   border-radius: 4px;
-  height: 450px;
+  color: white;
+  height: 500px;
   border-radius: 7px;
   overflow: hidden;
   transition: transform var(--transition-delay), filter var(--transition-delay);
