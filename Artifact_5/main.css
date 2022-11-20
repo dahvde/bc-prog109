@@ -1,0 +1,84 @@
+body {
+  background-color: black;
+  --queue-scale-size: 0.85;
+  --hidden-scale-size: 0.6;
+  --transition-delay: 0.4s;
+  overflow: hidden;
+}
+
+#carousel {
+  /* overflow: scroll; */
+  width: 100%;
+  position: relative;
+  height: 450px;
+  gap: 10px;
+  flex-direction: row;
+  justify-content: center;
+  display: flex;
+}
+
+#button-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+#button-container button {
+  font-size: 20px;
+  background-color: rgb(26, 26, 26);
+  color: white;
+  border: 0;
+  padding: 4px 10px;
+  border-radius: 7px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.192);
+  transition: background-color 0.2s ease;
+}
+
+#button-container button:hover {
+  background-color: rgb(36, 36, 36);
+}
+
+.slide {
+  width: 700px;
+  border-radius: 4px;
+  height: 450px;
+  border-radius: 7px;
+  overflow: hidden;
+  transition: transform var(--transition-delay), filter var(--transition-delay);
+}
+
+#focused {
+  z-index: 1;
+  position: absolute;
+}
+
+#queue-left,
+#queue-right {
+  position: absolute;
+  filter: brightness(0.5);
+}
+
+#queue-left {
+  transform: translateX(-200px) scale(var(--queue-scale-size));
+}
+
+#queue-right {
+  transform: translateX(200px) scale(var(--queue-scale-size));
+}
+
+#hidden-right,
+#hidden-left {
+  opacity: 0%;
+  z-index: -100;
+}
+
+#hidden-right {
+  transform: translateX(900px) scale(var(--hidden-scale-size));
+}
+
+#hidden-left {
+  transform: translateX(-900px) scale(var(--hidden-scale-size));
+}
