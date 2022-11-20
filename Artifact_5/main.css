@@ -37,6 +37,12 @@ body {
   transition: background-color 0.2s ease;
 }
 
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 #button-container button:hover {
   background-color: rgb(36, 36, 36);
 }
