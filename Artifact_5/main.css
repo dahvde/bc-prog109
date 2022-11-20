@@ -49,12 +49,15 @@ footer {
 
 .slide {
   width: 700px;
-  border-radius: 4px;
   color: white;
   height: 500px;
   border-radius: 7px;
   overflow: hidden;
   transition: transform var(--transition-delay), filter var(--transition-delay);
+}
+
+.slide img {
+  border-radius: 4px;
 }
 
 #focused {
