@@ -13,8 +13,21 @@ body {
   --transition: 0s;
 }
 
+.card-size-2 > a {
+  flex: 25%;
+}
+
 html,
 body {
+}
+
+#paragraph {
+  width: clamp(300px, 70%, 500px);
+  margin: auto;
+}
+
+.center-text {
+  text-align: center;
 }
 
 #welcome-gif {
