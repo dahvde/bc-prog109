@@ -46,17 +46,21 @@
       const hidden = document.getElementById('hidden-container');
       const video = document.querySelector('.yt-video');
       const gif = document.getElementById('hidden-gif');
+      let clicked = false
 
       button.addEventListener('click', () => {
-        hidden.classList.remove('hidden');
-        hidden.classList.add("visible");
-        video.src += "?autoplay=1";
+        if (!clicked) {
+          hidden.classList.remove('hidden');
+          hidden.classList.add("visible");
+          video.src += "?autoplay=1";
+          setTimeout(() => {
+            gif.classList.remove('hidden');
+            gif.classList.add("visible");
+          }, 2000);
+        }
 
-        setTimeout(() => {
-          gif.classList.remove('hidden');
-          gif.classList.add("visible");
-        }, 2000);
-      });
+        clicked = true
+      })
     </script>
   </body>
 
