@@ -22,11 +22,42 @@
           <a class="header_button" id="selectedPage" href="./creative.html">Creative</a>
         </div>
       </header>
+      <div id="content">
+        <h3 class="center-text">Creative</h3>
+        <p class="paragraph center-text">Welcome to this random page that I have no idea what to put on.</p>
+        <button class="button center margin-top">Click Here Just Because</button>
+        <div id="hidden-container" class="hidden center margin-top">
+          <iframe class="border-curve yt-video" width="560" height="315" src="https://www.youtube.com/embed/eBGIQ7ZuuiU"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          <div id="hidden-gif" class="hidden center-text margin-top">
+            <iframe class="border-curve giphy-embed" src="https://giphy.com/embed/fUYhyT9IjftxrxJXcE" width="480"
+              height="392" allowFullScreen></iframe>
+          </div>
+        </div>
+      </div>
     </div>
     <audio autoplay loop>
       <source src="../audio/background.mp3">
     </audio>
     <script defer src="../js/main.js"></script>
+    <script>
+      const button = document.querySelector('.button');
+      const hidden = document.getElementById('hidden-container');
+      const video = document.querySelector('.yt-video');
+      const gif = document.getElementById('hidden-gif');
+
+      button.addEventListener('click', () => {
+        hidden.classList.remove('hidden');
+        hidden.classList.add("visible");
+        video.src += "?autoplay=1";
+
+        setTimeout(() => {
+          gif.classList.remove('hidden');
+          gif.classList.add("visible");
+        }, 2000);
+      });
+    </script>
   </body>
 
 </html>

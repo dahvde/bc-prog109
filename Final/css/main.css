@@ -10,6 +10,9 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #043246;
+  --pane-border-color: rgba(0, 0, 0, 0.395);
+  --pane-color: rgba(0, 0, 0, 0.539);
+  --pane-nav-color: rgba(0, 0, 0, 0.511);
   --transition: 0s;
 }
 
@@ -21,13 +24,49 @@ html,
 body {
 }
 
-#paragraph {
+.paragraph {
   width: clamp(300px, 70%, 500px);
   margin: auto;
 }
 
 .center-text {
   text-align: center;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.margin-top {
+  margin-top: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+iframe {
+  border: 0;
+}
+
+.button {
+  background-color: var(--pane-color);
+  color: white;
+  width: max-content;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid var(--pane-border-color);
+}
+
+.border-curve {
+  border-radius: 4px;
 }
 
 #welcome-gif {
@@ -45,11 +84,11 @@ body {
 }
 
 header {
-  background-color: rgba(0, 0, 0, 0.455);
+  background-color: var(--pane-nav-color);
   padding: 4px;
   /* width: clamp(10px, max-content, 100%); */
   /* margin: auto; */
-  border: 1.4px solid rgba(0, 0, 0, 0.375);
+  border: 1.4px solid var(--pane-border-color);
   display: flex;
   width: 20%;
   height: 100%;
@@ -99,7 +138,7 @@ header {
   padding: 20px;
   border-radius: 5px;
   border: 1.4px solid rgba(0, 0, 0, 0.375);
-  background-color: rgba(0, 0, 0, 0.33);
+  background-color: var(--pane-color);
   margin: auto;
   margin-top: 0;
   /* width: 100%; */
